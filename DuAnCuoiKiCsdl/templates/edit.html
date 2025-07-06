@@ -1,0 +1,28 @@
+<!-- templates/edit.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chỉnh sửa sản phẩm</title>
+</head>
+<body>
+
+  <h2> Chỉnh sửa sản phẩm</h2>
+  <form method="POST">
+    <p>Mã SP: <strong>{{ sp.MaSP }}</strong></p>
+    <input name="TenSP" value="{{ sp.TenSP }}" placeholder="Tên SP"><br>
+    <input name="MaNhaCC" value="{{ sp.MaNhaCC }}" placeholder="Mã Nhà CC"><br>
+    <input name="MaLoaiSP" value="{{ sp.MaLoaiSP }}" placeholder="Mã Loại SP"><br>
+    <input name="Donvi" value="{{ sp.Donvi }}" placeholder="Đơn vị"><br>
+    <input name="DonGia" value="{{ sp.DonGia }}" placeholder="Đơn giá"><br>
+    <input name="Soluong" value="{{ sp.Soluong }}" placeholder="Số lượng"><br>
+    <input name="SoLuongTT" value="{{ sp.SoLuongTT }}" placeholder="Số lượng thực tế"><br>
+    <input name="KhuyenMai" value="{{ sp.KhuyenMai }}" placeholder="Khuyến mãi"><br>
+    <button type="submit"> Lưu thay đổi</button>
+  </form>
+
+  <p><a href="/"> Quay lại</a></p>
+
+</body>
+</html>
+

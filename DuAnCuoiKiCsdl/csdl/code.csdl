@@ -1,0 +1,76 @@
+CREATE DATABASE csdl; 
+USE csdl;
+CREATE TABLE NhaCungCap (
+MaNhaCC varchar (10) not null primary key, TenNhaCC varchar (40) not null,
+DiaChi varchar (60) not null, Phone varchar (24) not null, Website varchar (30) not null
+); 
+CREATE TABLE LoaiSanPham (
+MaLoaiSP varchar (10) not null primary key, TenLoaiSP varchar (35) not null,
+MoTa text null
+);
+CREATE TABLE SanPham (
+MaSP varchar (10) not null primary key, TenSP varchar (40) not null,
+MaNhaCC varchar (10) not null, MaLoaiSP varchar (10) not null, DonVi varchar (20) not null, DonGia int not null default (0), SoLuong int not null default (0), SoLuongTT int not null default (0),
+KhuyenMai varchar (10) null default (0)
+);
+ 
+CREATE TABLE NhanVien (
+MaNV varchar(10) not null primary key, HoTen varchar(20) not null,
+ChucDanh varchar(30) not null, NgaySinh date not null, NgayNhanViec date not null, DiaChi varchar(50) not null, Phone varchar(10) not null, GhiChu text
+);
+CREATE TABLE HoaDon (
+MaHD varchar(10) not null primary key,
+
+MaKH varchar(10) not null, MaNV varchar(10) not null, NgayLapHD date not null, NgayNhanHang date not null, Tien int not null default(0), Thue real not null default(0.0),
+TongSoTien int not null default(0)
+);
+ 	CREATE TABLE KhachHang (
+MaKH varchar(10) not null primary key, TenKH varchar(30) not null,
+DiaChi varchar(50) not null, Phone varchar(24) not null, Email varchar(30) not null
+);
+CREATE TABLE HoaDonChiTiet (
+MaHD varchar(10) not null, MaSP varchar(10) not null, DonGia int not null default(0),
+SoLuong smallint not null default(0),
+
+GiamGia real not null default(0.0), ThanhTien int not null default(0)
+);
+ALTER TABLE SanPham
+ADD CONSTRAINT FK_SanPham_LoaiSanPham FOREIGN KEY (MaLoaiSP)
+REFERENCES LoaiSanPham(MaLoaiSP);
+ 
+ALTER TABLE SanPham
+ADD CONSTRAINT FK_SanPham_NhaCungCap FOREIGN KEY (MaNhaCC)
+REFERENCES NhaCungCap(MaNhaCC);
+ 
+ALTER TABLE HoaDon
+ADD CONSTRAINT FK_HoaDon_NhanVien FOREIGN KEY (MaNV)
+REFERENCES NhanVien(MaNV);
+ 
+ALTER TABLE HoaDon
+ADD CONSTRAINT FK_HoaDon_KhachHang FOREIGN KEY (MaKH)
+REFERENCES KhachHang(MaKH);
+ALTER TABLE HoaDonChitiet
+ADD CONSTRAINT FK_HoaDonChiTiet_SanPham FOREIGN KEY (MaSP)
+REFERENCES SanPham(MaSP);
+ 
+ALTER TABLE HoaDonChiTiet
+ADD CONSTRAINT FK_HoaDonChiTiet_HoaDon FOREIGN KEY (MaHD)
+REFERENCES HoaDon(MaHD);
+
+ ALTER TABLE SanPham
+ADD CONSTRAINT id_SanPham UNIQUE (MaSP);
+ 
+ALTER TABLE NhanVien
+ADD CONSTRAINT id_NhanVien UNIQUE (MaNV);
+ 
+
+ALTER TABLE NhaCungCap
+ADD CONSTRAINT id_NhaCungCap UNIQUE (MaNhaCC);
+ALTER TABLE HoaDon
+ADD CONSTRAINT id_HoaDon UNIQUE (MaHD);
+
+ALTER TABLE KhachHang
+ADD CONSTRAINT id_KhachHang UNIQUE (MaKH);
+
+ALTER TABLE LoaiSanPham
+ADD CONSTRAINT id_LoaiSanPham UNIQUE (MaLoaiSP);
