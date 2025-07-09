@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign In </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+    }
+    .modal {
+      width: 400px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .tabs div {
+      padding: 10px 30px;
+      cursor: default;
+      color: #555;
+    }
+    .tabs .active {
+      border-bottom: 2px solid #607d8b;
+      font-weight: bold;
+      color: black;
+    }
+    .welcome {
+      color: green;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      font-size: 14px;
+      background-color: transparent;
+    }
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .checkbox input {
+      margin-right: 10px;
+    }
+    button.signin {
+      width: 100%;
+      padding: 12px;
+      background-color: #607d8b;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 15px;
+      border-radius: 2px;
+    }
+    .forgot {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .forgot a {
+      color: #607d8b;
+      text-decoration: none;
+    }
+    .captcha {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .captcha a {
+      color: #607d8b;
+      text-decoration: none;
+    }
+    .or-line {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .or-line::before,
+    .or-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #ccc;
+      margin: 0 10px;
+    }
+    .social-login {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .social-login button {
+      flex: 1;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      background-color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+    .social-login img {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="tabs">
+            <div class="active">Sign In</div>
+        </div>
+
+        <div class="welcome">Welcome Back!</div>
+        <form>
+            <input type="email" id="email1" placeholder="Email" required>
+            <input type="password" id="password1" placeholder="Password" required>
+
+            <div class="checkbox">
+                <input type="checkbox" id="keep">
+                <label for="keep">Keep me signed in</label>
+            </div>
+
+            <button class="signin" id="signin1">Sign In</button>
+        </form>
+        <div class="forgot">
+            <a href="#">Forgot your password?</a>
+        </div>
+        <div class="captcha">
+        This site is protected by reCAPTCHA and the Google
+        <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+        </div>
+        <div class="or-line">OR, SIGN IN WITH…</div>
+
+        <div class="social-login">
+            <button>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            Facebook
+            </button>
+            <button>
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                Google
+            </button>
+        </div>
+    </div>
+    <script src="modesignin.js"></script>
+
+</body>
+</html>
